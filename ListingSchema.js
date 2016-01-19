@@ -26,6 +26,7 @@ listingSchema.pre('save', function(next) {
 	if(!this.created_at){
 		this.created_at = currentDate;
 	}
+	next();
 });
 
 /* Use your schema to instantiate a Mongoose model */
