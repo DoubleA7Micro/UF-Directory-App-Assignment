@@ -19,6 +19,13 @@ var listingSchema = new Schema({
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 listingSchema.pre('save', function(next) {
   /* your code here */
+	var currentDate = new Date();
+
+	this.updated_at = currentDate;
+
+	if(!this.created_at){
+		this.created_at = currentDate;
+	}
 });
 
 /* Use your schema to instantiate a Mongoose model */
